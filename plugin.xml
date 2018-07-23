@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+    <plugin id="com.jason-z.cordova-plugin-keychain-idfa" 
+        version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <name>cordova-plugin-keychain-idfa</name>
+        <js-module name="KeychainIDFA" src="www/CDVKeychainIDFA.js">
+            <clobbers target="KeychainIDFA" />
+        </js-module>
+        <platform name="ios">
+        	<config-file parent="/*" target="config.xml">
+	            <feature name="cCDVKeychainIDFA">
+	                <param name="ios-package" value="CDVKeychainIDFA" />
+	             </feature>
+            </config-file>
+            <header-file src="src/ios/CDVKeychainIDFA.h" />
+            <source-file src="src/ios/CDVKeychainIDFA.m" />
+             <header-file src="src/ios/KeychainHelper.h" />
+            <source-file src="src/ios/KeychainHelper.m" />
+            <framework src="ADSupport.framework" />
+        </platform>
+</plugin>
