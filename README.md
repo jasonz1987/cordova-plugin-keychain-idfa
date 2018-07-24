@@ -2,7 +2,23 @@
 
 通过IDFA+KEYCHAIN的方式获取ios的唯一设备id.
 
+如果不想使用Adsupport,请尝试另外一种获取方式：
+
+https://github.com/jasonz1987/cordova-plugin-keychain-uuid
+
+
+
 具体文档说明请参考：http://www.jason-z.com/post/22
+
+
+
+# DEMO
+
+
+
+https://github.com/jasonz1987/ionic-keychain-idfa-demo
+
+
 
 # 安装
 
@@ -46,7 +62,11 @@ KeychainIDFA.deleteDeviceID((id)=>{
 
 # 演示
 
+![演示](demo.gif)
 
+
+
+*可以尝试卸载app或者更换包名验证设备id是否一致。*
 
 
 
