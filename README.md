@@ -56,23 +56,13 @@ KeychainIDFA.deleteDeviceID((id)=>{
 })
 ```
 
-*此处的key是用来标识keychain存储的键值，可定义。*
+*此处的key是用来标识keychain存储的键值，根据自己定义。*
 
 
 
-# 演示
+# 重要说明
 
-![演示](demo.gif)
-
-
-
-*可以尝试卸载app或者更换包名验证设备id是否一致。*
-
-
-
-# 其他说明
-
-由于引入了AdSupport.Framework，并且你的应用里没有接入广告，需要在提交到appstore审核的时候正确勾选，参考如下：
+由于引入了AdSupport.Framework，并且你的应用里没有接入广告，需要在提交到appstore审核的时候正确勾选，否则有可能被苹果拒绝。参考配置如下：
 
 
 ![appstore审核](screenshot-1.png)
