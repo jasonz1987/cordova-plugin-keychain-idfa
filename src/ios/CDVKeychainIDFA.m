@@ -1,27 +1,40 @@
-/********* cordova-plugin-keychain-idfa.m Cordova Plugin Implementation *******/
-
 #import <Cordova/CDV.h>
+#import "CDVKeychainIDFA.h"
 #import "KeychainHelper.h"
-#import ADSupport
+#import <AdSupport/ASIdentifierManager.h>
+
 #define kIsStringValid(text) (text && text!=NULL && text.length>0)
 
-@implementation CDVKeychainIDFA
+NSString *key = @"com.jason-z.test.idfa";
+
+
+@implementation CDVKeychainIDFA {
+    
+}
 
 - (void)getDeviceID:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    //  read cache
 
-    NSString *deviceID = [KeychainIDFA getIdfaString];
+    NSDictionary *args = [command.arguments objectAtIndex:0];
+
+    if(args.length>0) {
+       if([args objectForkey:@"key"]) {
+            key = args objectForkey:@"key"];
+       }
+    }
+
+    //  read cache
+    NSString *deviceID = [CDVKeychainIDFA getIdfaString];
     if (kIsStringValid(deviceID))
     {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:deviceID];
     } else {
-        if ([ASIdentifierManager sharedManager].advertisingTrackingEnabled)
+        if([ASIdentifierManager sharedManager].advertisingTrackingEnabled)
         {
             deviceID = [[[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString] lowercaseString];
-            [KeychainIDFA setIdfaString:deviceID];
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
+            [CDVKeychainIDFA setIdfaString:deviceID];
+            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:deviceID];
         } else {
             pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"未开启adsupport"];
 
@@ -33,7 +46,7 @@
 
 + (NSString*)getIdfaString
 {
-    NSString *idfaStr = [KeychainHelper load:IDFA_STRING];
+    NSString *idfaStr = [KeychainHelper load:key];
     if (kIsStringValid(idfaStr))
     {
         return idfaStr;
@@ -48,7 +61,7 @@
 {
     if (kIsStringValid(secValue))
     {
-        [KeychainHelper save:IDFA_STRING data:secValue];
+        [KeychainHelper save:key data:secValue];
         return YES;
     }
     else

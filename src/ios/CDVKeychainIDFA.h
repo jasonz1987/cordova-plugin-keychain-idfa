@@ -1,11 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <Cordova/CDVPlugin.h>
+#import <Cordova/CDVPluginResult.h>
 
-#define IDFA_STRING @"com.jason-z.test.idfa"
-
-@interface CDVCamera : CDVPlugin {
-  // Member variables go here.
-}
+@interface CDVKeychainIDFA : CDVPlugin
 
 - (void)getDeviceID:(CDVInvokedUrlCommand*)command;
 

@@ -1,5 +1,8 @@
 var exec = require('cordova/exec');
 
-exports.getDeviceID = function (arg0, success, error) {
-    exec(success, error, 'CDVkeychainIDFA', 'getDeviceID', [arg0]);
+exports.getDeviceID = function (success,error,args) {
+	if(args === undefined) {
+        args = {}
+    }
+    exec(success, error, 'CDVkeychainIDFA', 'getDeviceID', args);
 };
