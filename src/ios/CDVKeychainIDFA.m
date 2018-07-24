@@ -12,15 +12,33 @@ NSString *key = @"com.jason-z.test.idfa";
     
 }
 
+- (void)deleteDeviceID:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+    NSDictionary *args = [command.arguments objectAtIndex:0];
+    
+    if( args.count > 0) {
+        if([args objectForKey:@"key"]) {
+            key = [args objectForKey:@"key"];
+        }
+    }
+    
+    [KeychainHelper delete:key];
+    
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];    
+}
+
 - (void)getDeviceID:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
 
     NSDictionary *args = [command.arguments objectAtIndex:0];
 
-    if(args.length>0) {
-       if([args objectForkey:@"key"]) {
-            key = args objectForkey:@"key"];
+    if( args.count > 0) {
+       if([args objectForKey:@"key"]) {
+            key = [args objectForKey:@"key"];
        }
     }
 

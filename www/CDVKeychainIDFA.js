@@ -1,8 +1,16 @@
-var exec = require('cordova/exec');
+var cordova = require('cordova');
 
-exports.getDeviceID = function (success,error,args) {
-	if(args === undefined) {
-        args = {}
-    }
-    exec(success, error, 'CDVkeychainIDFA', 'getDeviceID', args);
-};
+module.exports = {
+	getDeviceID :function (success,error,args) {
+		if(args === undefined) {
+	        args = {}
+	    }
+	    cordova.exec(success, error, 'KeychainIDFA', 'getDeviceID', [args]);
+	},
+	deleteDeviceID :function (success,error,args) {
+		if(args === undefined) {
+	        args = {}
+	    }
+	    cordova.exec(success, error, 'KeychainIDFA', 'deleteDeviceID', [args]);
+	}
+}

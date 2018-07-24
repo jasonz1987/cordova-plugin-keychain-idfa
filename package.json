@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-keychain-idfa",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": " crodova plugin for getting idfa from keychain",
   "main": "index.js",
   "scripts": {

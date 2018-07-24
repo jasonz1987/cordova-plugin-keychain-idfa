@@ -5,5 +5,6 @@
 @interface CDVKeychainIDFA : CDVPlugin
 
 - (void)getDeviceID:(CDVInvokedUrlCommand*)command;
+- (void)deleteDeviceID:(CDVInvokedUrlCommand*)command;
 
 @end

@@ -1,14 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-    <plugin id="com.jason-z.cordova-plugin-keychain-idfa" 
-        version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    <plugin id="cordova-plugin-keychain-idfa" 
+        version="1.0.3" xmlns="http://apache.org/cordova/ns/plugins/1.0" 
         xmlns:android="http://schemas.android.com/apk/res/android">
         <name>cordova-plugin-keychain-idfa</name>
+        <description>A cordova plugin for getting idfa from ios keychain</description>
+        <license>MIT</license>
+        <keywords>cordova,keychain,idfa,ios</keywords>
+        <repo>https://github.com/jasonz1987/cordova-plugin-keychain-idfa.git</repo>
+        <issue>https://github.com/jasonz1987/cordova-plugin-keychain-idfa/issues</issue>
         <js-module name="KeychainIDFA" src="www/CDVKeychainIDFA.js">
             <clobbers target="KeychainIDFA" />
         </js-module>
         <platform name="ios">
         	<config-file parent="/*" target="config.xml">
-	            <feature name="cCDVKeychainIDFA">
+	            <feature name="KeychainIDFA">
 	                <param name="ios-package" value="CDVKeychainIDFA" />
 	             </feature>
             </config-file>
