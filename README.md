@@ -1,36 +1,36 @@
-# 项目说明
+# cordova-plugin-keychain-idfa
 
-通过IDFA+KEYCHAIN的方式获取ios的唯一设备id.
+Get ios unique device id by **keychain+idfa**
 
-如果不想使用Adsupport,请尝试另外一种获取方式：
+if you can't use AdSupport,please check [UUID+KEYCHAIN](https://github.com/jasonz1987/cordova-plugin-keychain-uuid)
 
-https://github.com/jasonz1987/cordova-plugin-keychain-uuid
-
-
-
-具体文档说明请参考：http://www.jason-z.com/post/22
+more info please see my article ：http://www.jason-z.com/post/22
 
 
 
-# DEMO
+[中文文档](README_CN.md)
+
+# Exmaple
+
+[Ionic3 Demo](https://github.com/jasonz1987/ionic-keychain-idfa-demo)
 
 
 
-https://github.com/jasonz1987/ionic-keychain-idfa-demo
-
-
-
-# 安装
+# Install
 
 ```
 cordova plugin add cordova-plugin-keychain-idfa
 ```
 
-# 调用
 
-## 从keychain中获取设备ID
 
-```
+# Methods
+
+
+
+### get device id from keychain
+
+```javascript
 var args = {
   'key':'com.jason-z.test.idfa'
 };
@@ -42,9 +42,11 @@ KeychainIDFA.getDeviceID((id)=>{
 })
 ```
 
-##  从keychain中删除设备ID
 
-```
+
+###  delete device id from keychain
+
+```javascript
 var args = {
   'key':'com.jason-z.test.idfa'
 };
@@ -56,21 +58,26 @@ KeychainIDFA.deleteDeviceID((id)=>{
 })
 ```
 
-*此处的key是用来标识keychain存储的键值，根据自己定义。*
+
+
+*you can define **key** value by your own*
 
 
 
-# 重要说明
+# Warning
 
-由于引入了AdSupport.Framework，并且你的应用里没有接入广告，需要在提交到appstore审核的时候正确勾选，否则有可能被苹果拒绝。参考配置如下：
+this plugin depends on **AdSupport.Framework**，so you must select right choice  when submit your app to App Store. you can refer below choice if you havn't add any ads in your app.
 
 
 ![appstore审核](screenshot-1.png)
 
 
-# 赞赏
+# Donate
 
-如果我的插件帮助到了你，欢迎赞赏。
+If this project help you reduce time to develop, you can give me a cup of coffee :)
 
-![赞赏](donate.png)
+
+
+[![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/jasonz1987/6.66)
+
 
